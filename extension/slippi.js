@@ -375,6 +375,7 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 
 		let pathExtras = [];
 
+		/* This seems to cause an IO Crash due to one of the libs trying to access the dumped slp in it's original location. Uncommented to prevent this crash
 		if (tournament.value.name && tournament.value.name.length > 0) {
 			pathExtras.push(tournament.value.name);
 
@@ -395,6 +396,7 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 				}
 			}
 		}
+  		*/
 
 		//Sanitize the extra paths before creating the directory
 		for (let n = 0; n < pathExtras.length; n++) {
@@ -423,7 +425,8 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 			for (let i = 0; i < 100; i++) {
 
 				if (fs.existsSync(filePath)) {
-					fs.renameSync(filePath, finalPathCombined);
+					//Part of the disbabled slp organisation feature, also sometimes seems to cause failed stat generation. 
+					//fs.renameSync(filePath, finalPathCombined);
 					gotSLPFile = true;
 					break;
 				}
