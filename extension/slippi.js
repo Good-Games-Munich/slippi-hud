@@ -425,7 +425,7 @@ async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 
 			for (let i = 0; i < 100; i++) {
 
 				if (fs.existsSync(filePath)) {
-					//Part of the disbaled slp organisation feature, also sometimes seems to cause failed stat generation. 
+					//Part of the disbabled slp organisation feature, also sometimes seems to cause failed stat generation. 
 					//fs.renameSync(filePath, finalPathCombined);
 					gotSLPFile = true;
 					break;
