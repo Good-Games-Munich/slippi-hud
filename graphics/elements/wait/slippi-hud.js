@@ -216,15 +216,15 @@ return html`
 }
 
 .ov_blue {
-	filter: hue-rotate(325deg) brightness(105%);
+	filter: hue-rotate(0deg) brightness(105%);
 }
 	
 .ov_red {
-	filter: hue-rotate(95deg) brightness(105%);
+	filter: hue-rotate(325deg) brightness(105%);
 }
 
 .ov_green {
-	filter: hue-rotate(200deg) brightness(105%);
+	filter: hue-rotate(325deg) brightness(105%);
 }
 	
 .ov_violet {

@@ -298,7 +298,7 @@ position: absolute;
 }
 
 .ov_blue {
-	filter: hue-rotate(325deg) brightness(105%);
+	filter: hue-rotate(0deg) brightness(105%);
 }
 	
 .ov_red {
