@@ -495,7 +495,54 @@ export class PlayerInfo extends LitElement {
 				}
 
 				i = i + (tournament.value.isTeams ? 0 : 1);
-			}		
+			}
+		}
+	}
+
+	_swapCharactersButtonClicked(event) {
+		if (players.value.length > 0) {
+
+			for (let i = 0; i < players.value.length; i++) {
+
+				//If teams have been fully swapped, advance to next team
+				if (tournament.value.isTeams && i > 0 && i % 2 == 0) {
+					i += 2;
+				}
+
+				if (i >= players.value.length)
+					break;
+
+				//Singles: Swap in pairs of 2, Doubles: Swap the teams with each other
+				let secondIndex = i + (tournament.value.isTeams ? 2 : 1);
+
+				if (secondIndex < players.value.length) {
+					//Swap the in-game character/port mapping only (slippiIndex)
+					let player1 = players.value[i];
+					let player2 = players.value[secondIndex];
+
+					let tmp = player1.slippiIndex;
+					player1.slippiIndex = player2.slippiIndex;
+					player2.slippiIndex = tmp;
+
+					//In doubles swap the second member of each team as well
+					if (tournament.value.isTeams) {
+						let teammate1Index = i + 1;
+						let teammate2Index = secondIndex + 1;
+
+						if (teammate1Index < players.value.length && teammate2Index < players.value.length) {
+							let teammate1 = players.value[teammate1Index];
+							let teammate2 = players.value[teammate2Index];
+
+							let tmp2 = teammate1.slippiIndex;
+							teammate1.slippiIndex = teammate2.slippiIndex;
+							teammate2.slippiIndex = tmp2;
+						}
+					}
+				}
+
+				//Skip the next player in singles because we've already swapped the pair
+				i = i + (tournament.value.isTeams ? 0 : 1);
+			}
 		}
 	}
 

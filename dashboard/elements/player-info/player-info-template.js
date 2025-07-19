@@ -154,6 +154,7 @@ return html`
   <vaadin-horizontal-layout id="lowerButtonsLayout">
     <vaadin-button id="resetScoresButton" theme="primary" @click=${this._resetScoresButtonClicked}>Reset Scores</vaadin-button>
     <vaadin-button id="swapDataButton" theme="primary" @click=${this._swapDataButtonClicked}>Swap Data</vaadin-button>
+    <vaadin-button id="swapCharactersButton" theme="primary" @click=${this._swapCharactersButtonClicked}>Swap Characters</vaadin-button>
   </vaadin-horizontal-layout>
   <vaadin-radio-group id="autoScoreCheckbox" theme="slippi-style" label="Auto Scoring" value=${this.autoScoreEnabled} @change=${this._autoScoreRadioChange}>
     <vaadin-radio-button value="false" theme="slippi-style">Hand-Warmer</vaadin-radio-button>
